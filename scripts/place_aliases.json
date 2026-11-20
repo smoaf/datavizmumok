@@ -1,0 +1,465 @@
+{
+ "_note": "Place text in the cleaned list -> GeoNames entry. precision: city = same place under another name, near = nearest town in GeoNames (village or district not in the gazetteer).",
+ "Waidhofen a.d. Ybbs, Austria": [
+  "Waidhofen an der Ybbs",
+  "AT",
+  "city"
+ ],
+ "Heppenheim an der Bergstraße, Germany": [
+  "Heppenheim an der Bergstrasse",
+  "DE",
+  "city"
+ ],
+ "Piatra Neamtz, Romania": [
+  "Piatra Neamţ",
+  "RO",
+  "city"
+ ],
+ "Montroig, Spain": [
+  "Mont-roig del Camp",
+  "ES",
+  "city"
+ ],
+ "Olesnicka, Poland (then Oels, Silesia)": [
+  "Oleśnica",
+  "PL",
+  "city"
+ ],
+ "Bad Salzdefurth, Germany": [
+  "Bad Salzdetfurth",
+  "DE",
+  "city"
+ ],
+ "Sabae-Shi, Japan": [
+  "Sabae",
+  "JP",
+  "city"
+ ],
+ "Selsey Bill, Sussex, Great Britain": [
+  "Selsey",
+  "GB",
+  "city"
+ ],
+ "Aigen i.M., Austria": [
+  "Aigen im Mühlkreis",
+  "AT",
+  "city"
+ ],
+ "Raabs/Thaya, Austria": [
+  "Raabs an der Thaya",
+  "AT",
+  "city"
+ ],
+ "Wauwil LU, Switzerland": [
+  "Wauwil",
+  "CH",
+  "city"
+ ],
+ "Cherven Briag, Bulgaria": [
+  "Cherven Bryag",
+  "BG",
+  "city"
+ ],
+ "Kötschach-Mauthen, Austria": [
+  "Kötschach",
+  "AT",
+  "city"
+ ],
+ "Mauthen, Austria": [
+  "Kötschach",
+  "AT",
+  "near"
+ ],
+ "Ybbs, Austria": [
+  "Ybbs an der Donau",
+  "AT",
+  "city"
+ ],
+ "Eggersried, Switzerland": [
+  "Eggersriet",
+  "CH",
+  "city"
+ ],
+ "Bistraz, Romania": [
+  "Bistriţa",
+  "RO",
+  "city"
+ ],
+ "Boulogne-sur-Seine, France": [
+  "Boulogne-Billancourt",
+  "FR",
+  "city"
+ ],
+ "Velika Kikinda, Serbia": [
+  "Kikinda",
+  "RS",
+  "city"
+ ],
+ "Castellaun, Germany": [
+  "Kastellaun",
+  "DE",
+  "city"
+ ],
+ "Leonfelden, Austria": [
+  "Bad Leonfelden",
+  "AT",
+  "city"
+ ],
+ "Goisern, Austria": [
+  "Bad Goisern",
+  "AT",
+  "city"
+ ],
+ "Auschwitz, Poland": [
+  "Oświęcim",
+  "PL",
+  "city"
+ ],
+ "KZ Maidanek near Lublin, Poland": [
+  "Lublin",
+  "PL",
+  "near"
+ ],
+ "Czernowitz, Bukowina (today Ukraine)": [
+  "Chernivtsi",
+  "UA",
+  "city"
+ ],
+ "Leitmeritz (Litomerice), Northern Bohemia": [
+  "Litoměřice",
+  "CZ",
+  "city"
+ ],
+ "Neutitschein (Novy Jicin), Czech Republic": [
+  "Nový Jičín",
+  "CZ",
+  "city"
+ ],
+ "Tîrgu Mures, Romania": [
+  "Târgu-Mureş",
+  "RO",
+  "city"
+ ],
+ "Szilagysomlyo, Hungary": [
+  "Şimleu Silvaniei",
+  "RO",
+  "city"
+ ],
+ "Viipuri, Finland": [
+  "Vyborg",
+  "RU",
+  "city"
+ ],
+ "Schneidemühl, Germany": [
+  "Piła",
+  "PL",
+  "city"
+ ],
+ "Insterburg, Germany": [
+  "Chernyakhovsk",
+  "RU",
+  "city"
+ ],
+ "Gomel, Russia": [
+  "Homyel'",
+  "BY",
+  "city"
+ ],
+ "Baghdati, Georgia": [
+  "Bagdadi",
+  "GE",
+  "city"
+ ],
+ "Libawka, Poland (then Liebau, Germany)": [
+  "Lubawka",
+  "PL",
+  "city"
+ ],
+ "Karya-Aichi-ken, Japan": [
+  "Kariya",
+  "JP",
+  "city"
+ ],
+ "Meißen, Germany": [
+  "Meissen",
+  "DE",
+  "city"
+ ],
+ "Oran, France": [
+  "Oran",
+  "DZ",
+  "city"
+ ],
+ "Rákospalota, Hungary": [
+  "Budapest",
+  "HU",
+  "near"
+ ],
+ "Bad Godesberg, Germany": [
+  "Bonn",
+  "DE",
+  "near"
+ ],
+ "St. Tönis near Krefeld, Germany": [
+  "Tönisvorst",
+  "DE",
+  "near"
+ ],
+ "Haine-Saint-Pierre near La Louvière, Belgium": [
+  "La Louvière",
+  "BE",
+  "near"
+ ],
+ "Antheit bei Huy, Belgium": [
+  "Huy",
+  "BE",
+  "near"
+ ],
+ "Keilberg near Aschaffenburg, Germany": [
+  "Aschaffenburg",
+  "DE",
+  "near"
+ ],
+ "Posteholz bei Hameln, Germany": [
+  "Hameln",
+  "DE",
+  "near"
+ ],
+ "Überstorf near Freiburg, Switzerland": [
+  "Fribourg",
+  "CH",
+  "near"
+ ],
+ "Breech near Göppingen, Germany": [
+  "Göppingen",
+  "DE",
+  "near"
+ ],
+ "Kalksburg, Austria": [
+  "Vienna",
+  "AT",
+  "near"
+ ],
+ "Rekawinkel, Austria": [
+  "Pressbaum",
+  "AT",
+  "near"
+ ],
+ "Golfe-Juan, France": [
+  "Vallauris",
+  "FR",
+  "near"
+ ],
+ "Tamaris, France": [
+  "La Seyne-sur-Mer",
+  "FR",
+  "near"
+ ],
+ "Vejrum, Denmark": [
+  "Struer",
+  "DK",
+  "near"
+ ],
+ "Hobitza, Romania": [
+  "Târgu Jiu",
+  "RO",
+  "near"
+ ],
+ "Ein Hod, Israel": [
+  "Haifa",
+  "IL",
+  "near"
+ ],
+ "Kibbutz Mesilot, Israel": [
+  "Bet She’an",
+  "IL",
+  "near"
+ ],
+ "Schaesberg, The Netherlands": [
+  "Kerkrade",
+  "NL",
+  "near"
+ ],
+ "Cotta, Germany": [
+  "Dresden",
+  "DE",
+  "near"
+ ],
+ "Rottluff, Germany": [
+  "Chemnitz",
+  "DE",
+  "near"
+ ],
+ "Thier, Germany": [
+  "Wipperfürth",
+  "DE",
+  "near"
+ ],
+ "Schielo, Germany": [
+  "Harzgerode",
+  "DE",
+  "near"
+ ],
+ "Bork, Westfalen, Germany": [
+  "Selm",
+  "DE",
+  "near"
+ ],
+ "Deutschbaselitz, Germany": [
+  "Kamenz",
+  "DE",
+  "near"
+ ],
+ "Unterlengenhardt, Germany": [
+  "Bad Liebenzell",
+  "DE",
+  "near"
+ ],
+ "Wattenscheid, Germany": [
+  "Bochum",
+  "DE",
+  "near"
+ ],
+ "Semeniškiai, Birža, Lithuania": [
+  "Biržai",
+  "LT",
+  "near"
+ ],
+ "Klepacov, Blansko, Czech Republic": [
+  "Blansko",
+  "CZ",
+  "near"
+ ],
+ "Vila Nova da Cacela, Portugal": [
+  "Vila Real de Santo António",
+  "PT",
+  "near"
+ ],
+ "Portals Nous, Spain": [
+  "Calvià",
+  "ES",
+  "near"
+ ],
+ "Botallack, Great Britain": [
+  "St Just",
+  "GB",
+  "near"
+ ],
+ "Thurnscoe, Great Britain": [
+  "Barnsley",
+  "GB",
+  "near"
+ ],
+ "Jesus Pieces, Cambridge, England": [
+  "Cambridge",
+  "GB",
+  "near"
+ ],
+ "Kalsdorf bei Ilz, Austria": [
+  "Ilz",
+  "AT",
+  "near"
+ ],
+ "Wels-Gunskirchen, Austria": [
+  "Gunskirchen",
+  "AT",
+  "city"
+ ],
+ "St.Veit an der Glan, Austria": [
+  "Sankt Veit an der Glan",
+  "AT",
+  "city"
+ ],
+ "St. Martin an der Raab, Austria": [
+  "Sankt Martin an der Raab",
+  "AT",
+  "city"
+ ],
+ "Schloß Zwickledt, Austria": [
+  "Wernstein am Inn",
+  "AT",
+  "near"
+ ],
+ "Nötsch, Austria": [
+  "Villach",
+  "AT",
+  "near"
+ ],
+ "Oberwiesenthal, Germany": [
+  "Kurort Oberwiesenthal",
+  "DE",
+  "city"
+ ],
+ "Wamel/Möhnesee, Germany": [
+  "Möhnesee",
+  "DE",
+  "city"
+ ],
+ "Perry Green, Hertfordshire, Great Britain": [
+  "Much Hadham",
+  "GB",
+  "near"
+ ],
+ "Captiva Island, FL, USA": [
+  "Sanibel",
+  "US",
+  "near"
+ ],
+ "Le Cateau-Cambrésis (then Le Cateau), France": [
+  "Cambrai",
+  "FR",
+  "near"
+ ],
+ "Montfort l'Amaury, France": [
+  "Rambouillet",
+  "FR",
+  "near"
+ ],
+ "Couture-Boussey, France": [
+  "La Couture-Boussey",
+  "FR",
+  "city"
+ ],
+ "Bácsborsód, Hungary": [
+  "Baja",
+  "HU",
+  "near"
+ ],
+ "Borgonovo near Stampa, Switzerland": [
+  "Chiavenna",
+  "IT",
+  "near"
+ ],
+ "Spencertown, NY, USA": [
+  "Hudson",
+  "US",
+  "near",
+  "NY"
+ ],
+ "Port Clyde, ME, USA": [
+  "Rockland",
+  "US",
+  "near",
+  "ME"
+ ],
+ "Grodnau, Austria": [
+  "Oberwart",
+  "AT",
+  "near"
+ ],
+ "Südern-Linden, Switzerland": [
+  "Thun",
+  "CH",
+  "near"
+ ],
+ "Siegmundsherberg, Austria": [
+  "Horn",
+  "AT",
+  "near"
+ ],
+ "Malta": [
+  "Valletta",
+  "MT",
+  "near"
+ ]
+}

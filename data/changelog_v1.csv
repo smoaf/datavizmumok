@@ -1,0 +1,116 @@
+artist_id,field,old,new,reason
+9,cityofbirth_en,"Weyer,  Austria","Weyer, Austria",A whitespace: extra spaces
+2096,cityofbirth_en,"Maryborough, Queensland,  Australia","Maryborough, Queensland, Australia",A whitespace: extra spaces
+2140,cityofbirth_de,"Villach,  Österreich","Villach, Österreich",A whitespace: extra spaces
+2840,cityofbirth_de,"Los Angeles, CA , USA","Los Angeles, CA, USA",A whitespace: extra spaces
+2840,cityofbirth_en,"Los Angeles, CA , USA","Los Angeles, CA, USA",A whitespace: extra spaces
+13,cityofbirth_en,"Straßburg, Frankreich (damals Deutschland)","Strasbourg, France (then Germany)",B spelling EN: fix
+21,cityofbirth_en,"Batum, Georgian Republic","Batumi, Georgia",B spelling EN: fix
+36,cityofbirth_en,"Copenhagen, Denemark","Copenhagen, Denmark",B spelling EN: fix
+113,cityofbirth_en,"Tîrgu Mures, Rumania","Tîrgu Mures, Romania",B spelling EN: fix
+173,cityofbirth_en,"Pontevedra, Galicien, Spain","Pontevedra, Galicia, Spain",B spelling EN: fix
+174,cityofbirth_en,"Buenos Aires, Argentinia","Buenos Aires, Argentina",B spelling EN: fix
+183,cityofbirth_en,"Sheffiled, Great Britain","Sheffield, Great Britain",B spelling EN: fix
+216,cityofbirth_en,"St. Tönis near Krefeld, Deutschland","St. Tönis near Krefeld, Germany",B spelling EN: fix
+294,cityofbirth_en,"São Paolo, Brasil","São Paulo, Brazil",B spelling EN: fix
+618,cityofbirth_en,"Rotterdam, Netherland","Rotterdam, The Netherlands",B spelling EN: fix
+743,cityofbirth_en,"Brasov, Rumania","Brasov, Romania",B spelling EN: fix
+743,cityofdeath_en,"Brasov, Rumania","Brasov, Romania",B spelling EN: fix
+831,cityofbirth_en,"Lwow, Ukraine","Lviv, Ukraine",B spelling EN: fix
+871,cityofbirth_en,"Luzzara, Reggio Emilia, Italia","Luzzara, Reggio Emilia, Italy",B spelling EN: fix
+900,cityofdeath_en,St. Martin an der Raab/Austria,"St. Martin an der Raab, Austria",B spelling EN: fix
+901,cityofbirth_en,"Jindřichův Hradec, Czech Repbulic (then Neuhaus)","Jindřichův Hradec, Czech Republic (then Neuhaus)",B spelling EN: fix
+911,cityofbirth_en,"Reggio Emilia, Italia","Reggio Emilia, Italy",B spelling EN: fix
+1045,cityofbirth_en,"Schneidemühl, Austria","Schneidemühl, Germany",B spelling EN: fix
+1128,cityofbirth_en,"Teheran, Iraq","Tehran, Iran",B spelling EN: fix
+1297,cityofbirth_en,"Buenos Aires, Argentinia","Buenos Aires, Argentina",B spelling EN: fix
+1351,cityofdeath_en,"Wien, Austria","Vienna, Austria",B spelling EN: fix
+1434,cityofbirth_en,"Ostende, Belgium","Ostend, Belgium",B spelling EN: fix
+1444,cityofbirth_en,"Witebsk, Belarus","Vitebsk, Belarus",B spelling EN: fix
+1478,cityofbirth_en,"Antwerpen, Belgium","Antwerp, Belgium",B spelling EN: fix
+1479,cityofbirth_en,"Stuttgard, Germany","Stuttgart, Germany",B spelling EN: fix
+1618,cityofbirth_en,"Caxias do Sul, Brasil","Caxias do Sul, Brazil",B spelling EN: fix
+1818,cityofbirth_en,"Orynbor, Russia","Orenburg, Russia",B spelling EN: fix
+1929,cityofbirth_en,"Tokio, Japan","Tokyo, Japan",B spelling EN: fix
+1957,cityofbirth_en,"Praque, Czech Republic","Prague, Czech Republic",B spelling EN: fix
+2013,cityofbirth_en,"Teheran, Iran","Tehran, Iran",B spelling EN: fix
+2055,cityofbirth_en,"Teheran, Iran","Tehran, Iran",B spelling EN: fix
+2062,cityofbirth_en,"Jerusalem, Isreal","Jerusalem, Israel",B spelling EN: fix
+2291,cityofdeath_en,"Stuttgard, Germany","Stuttgart, Germany",B spelling EN: fix
+3201,cityofbirth_en,"Hamburg, Deutschland","Hamburg, Germany",B spelling EN: fix
+3351,cityofbirth_en,"Crois, France","Croix, France",B spelling EN: fix
+371,cityofdeath_de,"Sacramento, USA","Sacramento, CA, USA","C US place format: consistent ""City, ST, USA"" format"
+371,cityofdeath_en,"Sacramento, USA","Sacramento, CA, USA","C US place format: consistent ""City, ST, USA"" format"
+383,cityofbirth_de,"Frankfort, Indiana USA","Frankfort, IN, USA","C US place format: consistent ""City, ST, USA"" format"
+383,cityofbirth_en,"Frankfort, Indiana USA","Frankfort, IN, USA","C US place format: consistent ""City, ST, USA"" format"
+461,cityofbirth_de,"New York, USA","New York, NY, USA","C US place format: consistent ""City, ST, USA"" format"
+508,cityofdeath_de,"Vinalhaven, Maine, USA","Vinalhaven, ME, USA","C US place format: consistent ""City, ST, USA"" format"
+508,cityofdeath_en,"Vinalhaven, Maine, USA","Vinalhaven, ME, USA","C US place format: consistent ""City, ST, USA"" format"
+1016,cityofdeath_de,"Hampton Bays, New York, USA","Hampton Bays, NY, USA","C US place format: consistent ""City, ST, USA"" format"
+1016,cityofdeath_en,"Hampton Bays, New York, USA","Hampton Bays, NY, USA","C US place format: consistent ""City, ST, USA"" format"
+1237,cityofdeath_de,"Rock Island, Illinois, USA","Rock Island, IL, USA","C US place format: consistent ""City, ST, USA"" format"
+1237,cityofdeath_en,"Rock Island, Illinois, USA","Rock Island, IL, USA","C US place format: consistent ""City, ST, USA"" format"
+1900,cityofbirth_de,"Nevada, IO, USA","Nevada, IA, USA","C US place format: IO is not a state code, Iowa is IA"
+1900,cityofbirth_en,"Nevada, IO, USA","Nevada, IA, USA","C US place format: IO is not a state code, Iowa is IA"
+2553,cityofbirth_de,"Cleveland, USA","Cleveland, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+2553,cityofbirth_en,"Cleveland, USA","Cleveland, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+2553,cityofdeath_de,"Manhattan NY, USA","New York, NY, USA","C US place format: consistent ""City, ST, USA"" format"
+2553,cityofdeath_en,"Manhattan NY, USA","New York, NY, USA","C US place format: consistent ""City, ST, USA"" format"
+3033,cityofbirth_de,"Tucson, Arizona, USA","Tucson, AZ, USA","C US place format: consistent ""City, ST, USA"" format"
+3033,cityofbirth_en,"Tucson, Arizona, USA","Tucson, AZ, USA","C US place format: consistent ""City, ST, USA"" format"
+3144,cityofdeath_de,"Cincinnati, Ohio, USA","Cincinnati, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+3144,cityofdeath_en,"Cincinnati, Ohio, USA","Cincinnati, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+4505,cityofbirth_de,"Newark, New Jersey, USA","Newark, NJ, USA","C US place format: consistent ""City, ST, USA"" format"
+4505,cityofbirth_en,"Newark, New Jersey, USA","Newark, NJ, USA","C US place format: consistent ""City, ST, USA"" format"
+4505,cityofdeath_de,"Dallas, USA","Dallas, TX, USA","C US place format: consistent ""City, ST, USA"" format"
+4505,cityofdeath_en,"Dallas, USA","Dallas, TX, USA","C US place format: consistent ""City, ST, USA"" format"
+4620,cityofbirth_de,"Cleveland, USA","Cleveland, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+4620,cityofbirth_en,"Cleveland, USA","Cleveland, OH, USA","C US place format: consistent ""City, ST, USA"" format"
+49,cityofbirth_de,"Dublin, Großbritanien","Dublin, Großbritannien",D spelling DE: fix
+183,cityofbirth_de,"Sheffield, Großbritanien","Sheffield, Großbritannien",D spelling DE: fix
+223,cityofbirth_de,"Grangemouth, Großbritanien","Grangemouth, Großbritannien",D spelling DE: fix
+252,cityofbirth_de,"Karlovy Vary (Karlsbad), Tschechsiche Republik","Karlovy Vary (Karlsbad), Tschechische Republik",D spelling DE: fix
+421,cityofdeath_de,Wien,"Wien, Österreich",D spelling DE: fix
+465,cityofbirth_de,"Jesus Pieces, Cambridge, Großbritanien","Jesus Pieces, Cambridge, Großbritannien",D spelling DE: fix
+470,cityofdeath_de,"Botallack, Großbritanien","Botallack, Großbritannien",D spelling DE: fix
+542,cityofbirth_de,"Southampton, Großbritanien","Southampton, Großbritannien",D spelling DE: fix
+747,cityofbirth_de,Wien,"Wien, Österreich",D spelling DE: fix
+801,cityofbirth_de,"Libawka, Polen (damals Liebau, Deuschland)","Libawka, Polen (damals Liebau, Deutschland)",D spelling DE: fix
+820,cityofdeath_de,Wien,"Wien, Österreich",D spelling DE: fix
+875,cityofbirth_de,"Chelsham, Surrey, Großbritanien","Chelsham, Surrey, Großbritannien",D spelling DE: fix
+903,cityofdeath_de,Wien,"Wien, Österreich",D spelling DE: fix
+1247,cityofdeath_de,Wien,"Wien, Österreich",D spelling DE: fix
+1267,cityofbirth_de,"Leeds, Great Britain","Leeds, Großbritannien",D spelling DE: fix
+1590,cityofbirth_de,"Dublin, Großbritanien","Dublin, Großbritannien",D spelling DE: fix
+1764,cityofbirth_de,"Wien, Östereich","Wien, Österreich",D spelling DE: fix
+1932,cityofbirth_de,"Glasgow, Großbritanien","Glasgow, Großbritannien",D spelling DE: fix
+1936,cityofbirth_de,"Lindenberg, Detuschland","Lindenberg, Deutschland",D spelling DE: fix
+2062,cityofbirth_de,"Jerusalem, Isreal","Jerusalem, Israel",D spelling DE: fix
+2078,cityofbirth_de,"Chester, Großbritanien","Chester, Großbritannien",D spelling DE: fix
+2113,cityofdeath_de,"Wien, Östereich","Wien, Österreich",D spelling DE: fix
+2232,cityofbirth_de,"Cheshire, Großbritanien","Cheshire, Großbritannien",D spelling DE: fix
+2246,cityofbirth_de,"Dublin, Großbritanien","Dublin, Großbritannien",D spelling DE: fix
+2,name,gelatin,Gelatin,"E malformed or missing EN: lowercase, group is known today as Gelitin"
+145,cityofdeath_en,,Ireland,"E malformed or missing EN: EN was empty, DE says Irland"
+290,cityofdeath_de,"Eisenstadt, Burgenland","Eisenstadt, Österreich",E malformed or missing EN: region instead of country
+290,cityofdeath_en,"Eisenstadt, Burgenland","Eisenstadt, Austria",E malformed or missing EN: region instead of country
+461,cityofbirth_en,,"New York, NY, USA",E malformed or missing EN: EN was empty
+461,cityofdeath_en,,"Compiègne, Oise, France",E malformed or missing EN: EN was empty
+747,cityofbirth_en,,"Vienna, Austria",E malformed or missing EN: EN was empty
+827,cityofbirth_en,,"Munich, Bavaria, Germany",E malformed or missing EN: EN was empty
+1934,cityofbirth_en,,"'s-Hertogenbosch, The Netherlands",E malformed or missing EN: EN was empty
+1961,cityofbirth_en,,Waldenstein,"E malformed or missing EN: EN was empty, country not stated in source, left out"
+1976,cityofbirth_en,,Copenhagen / Kent,"E malformed or missing EN: collective, EN was empty"
+2036,cityofdeath_de,de Rijke: Ghana 2006,,"E malformed or missing EN: note ""de Rijke: Ghana 2006"" sits in the death-city field of a duo, move it to a notes column"
+3142,cityofbirth_de,"1956 in Wauwil LU, Schweiz","Wauwil LU, Schweiz",E malformed or missing EN: year was typed into the city field
+3142,cityofbirth_en,"1956 in Wauwil LU, Switzerland","Wauwil LU, Switzerland",E malformed or missing EN: year was typed into the city field
+3143,cityofbirth_de,"Tbilisi, Georgia, USA","Tbilisi, Georgien","E malformed or missing EN: ""USA"" wrongly appended"
+3143,cityofbirth_en,"Tbilisi, Georgia, USA","Tbilisi, Georgia","E malformed or missing EN: ""USA"" wrongly appended"
+2011,cityofbirth_de,"Bethlehem, Israel","Bethlehem, Palästinensische Gebiete","contested place, place-based name (approved)"
+2011,cityofbirth_en,"Bethlehem, Israel","Bethlehem, Palestinian Territories","contested place, place-based name (approved)"
+2059,cityofbirth_de,"Gaza, Israel","Gaza, Palästinensische Gebiete","contested place, place-based name (approved)"
+2059,cityofbirth_en,"Gaza, Israel","Gaza, Palestinian Territories","contested place, place-based name (approved)"
+1180,cityofdeath_de,"Taiwan, China",Taiwan,"contested place, place-based name (approved)"
+1180,cityofdeath_en,"Taiwan, China",Taiwan,"contested place, place-based name (approved)"
+1869,cityofbirth_de,"Kiew, Russland","Kiew, Ukraine","contested place, place-based name (approved)"
+1869,cityofbirth_en,"Kiew, Russia","Kyiv, Ukraine","contested place, place-based name (approved)"

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Born here, died there</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: poster cover, three small pixel figures, the map, a short colophon.
+   One visual world: Vanzyst paper, mono type, five inks. */
+:root {
+  --ink: #1D1D1B;
+  --mute: #68645C;
+  --paper: #EEEBE3;
+  --panel: #F3F1EB;
+  --rule: #D3CEC2;
+  --or: #D9531E;
+  --bl: #2F6FB3;
+  --yel: #E7B62C;
+  --grn: #3F9D5C;
+  --land: color-mix(in oklab, #1D1D1B 17%, transparent);
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(40,35,25,.07) .7px, transparent 1px),
+    radial-gradient(rgba(40,35,25,.045) .7px, transparent 1px);
+  background-size: 4px 4px, 9px 9px;
+  background-position: 0 0, 2px 3px;
+  color: var(--ink);
+  font-family: var(--mono);
+}
+.page { max-width: 1240px; margin: 0 auto; padding: clamp(20px, 4vw, 56px) clamp(16px, 4vw, 56px); display: grid; gap: clamp(28px, 4vw, 52px); }
+p { margin: 0; }
+.top { display: flex; justify-content: space-between; gap: 16px; font-size: 12px; font-weight: 600; letter-spacing: .08em; }
+.hero { display: grid; grid-template-columns: minmax(120px, 1fr) auto 28px; gap: clamp(16px, 3vw, 40px); align-items: start; margin-top: clamp(20px, 4vw, 48px); }
+.notes { font-size: 12px; line-height: 1.35; letter-spacing: .04em; text-align: right; padding-top: 14px; }
+h1 { font-weight: 600; font-size: clamp(40px, 8.6vw, 118px); line-height: .92; letter-spacing: -.03em; margin: 0; text-wrap: balance; }
+.over { display: block; font-size: clamp(14px, 2.2vw, 28px); letter-spacing: .02em; font-weight: 500; margin-bottom: .35em; text-align: right; }
+.strip { display: grid; gap: 6px; padding-top: 8px; }
+.strip i { display: block; width: 16px; height: 16px; }
+.intro { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(0, 2.2fr); gap: clamp(16px, 3vw, 40px); margin-top: clamp(18px, 3vw, 36px); align-items: start; }
+.stars { font-size: clamp(28px, 4vw, 44px); font-weight: 600; letter-spacing: .12em; line-height: 1; text-align: right; }
+.lede { font-family: var(--sans); font-size: clamp(17px, 2vw, 21px); line-height: 1.5; max-width: 46ch; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(16px, 2.5vw, 28px); border-top: 1.5px solid var(--ink); padding-top: 18px; }
+.stat { margin: 0; display: grid; gap: 10px; align-content: start; }
+.big { font-size: clamp(36px, 4.6vw, 54px); font-weight: 600; line-height: 1; letter-spacing: -.02em; }
+.big small { font-size: .42em; font-weight: 500; color: var(--mute); letter-spacing: 0; }
+.waffle svg { display: block; max-width: 100%; height: auto; }
+.stat figcaption { font-size: 12px; font-weight: 600; letter-spacing: .05em; line-height: 1.4; }
+.stat figcaption span { display: block; font-weight: 400; color: var(--mute); letter-spacing: .02em; }
+.mapsec { display: grid; gap: 12px; }
+.bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; align-items: center; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 12px; font-weight: 600; letter-spacing: .05em; align-items: center; }
+.sw { display: inline-block; width: 11px; height: 11px; margin-right: 7px; vertical-align: -1px; }
+.ctrls { display: flex; flex-wrap: wrap; gap: 10px; }
+.seg { display: inline-flex; border: 1.5px solid var(--ink); }
+.seg button { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .05em; padding: 6px 11px; background: transparent; color: var(--ink); border: 0; cursor: pointer; }
+.seg button + button { border-left: 1.5px solid var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.seg button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+.panel { background: var(--panel); border: 1px solid var(--rule); padding: clamp(8px, 1.5vw, 16px); }
+.map { position: relative; min-height: 120px; touch-action: pan-y; }
+.map svg { display: block; cursor: grab; }
+.tip { position: absolute; pointer-events: none; background: #FAF8F3; border: 1.5px solid var(--ink); padding: 8px 10px; font-size: 12px; line-height: 1.45; max-width: 300px; z-index: 3; }
+.tip b { display: block; font-weight: 600; font-size: 13px; }
+.tip span { display: block; color: var(--mute); }
+.hint { font-size: 12px; color: var(--mute); line-height: 1.5; }
+.sel { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .05em; }
+.sel select { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink); background: var(--panel); border: 1.5px solid var(--ink); border-radius: 0; padding: 5px 8px; max-width: 260px; }
+.sel select:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+.detail { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.box { background: var(--panel); border: 1px solid var(--rule); padding: 14px 16px; }
+.box h3 { font-size: 12px; font-weight: 600; letter-spacing: .05em; margin: 0; }
+.box ul { list-style: none; margin: 10px 0 0; padding: 0; font-family: var(--sans); font-size: 14px; line-height: 1.55; max-height: 300px; overflow: auto; }
+.box li b { font-weight: 600; }
+.box li span { color: var(--mute); }
+.howto { display: grid; gap: 16px; border-top: 1.5px solid var(--ink); padding-top: 18px; }
+.howto h2 { font-size: 12px; font-weight: 600; letter-spacing: .08em; margin: 0; }
+.howto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(16px, 2.5vw, 28px); }
+.howto h3 { font-size: 12px; font-weight: 600; letter-spacing: .05em; margin: 0 0 6px; }
+.howto-grid p { font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+footer { display: grid; grid-template-columns: minmax(0, 2fr) auto; gap: 16px 32px; align-items: end; border-top: 1.5px solid var(--ink); padding-top: 16px; }
+footer p.note { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--mute); max-width: 70ch; }
+.by { font-size: clamp(18px, 2.4vw, 28px); font-weight: 600; line-height: 1.05; text-align: right; letter-spacing: .01em; }
+@media (max-width: 640px) {
+  .hero, .intro, footer { grid-template-columns: 1fr; }
+  .notes, .over, .stars, .by { text-align: left; }
+  .strip { grid-auto-flow: column; justify-content: start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header id="cover">
+  <div class="top"><span>MUMOK WIEN</span><span>ARTIST ATLAS</span></div>
+  <div class="hero">
+    <p class="notes">ONE LINE.<br>ONE ARTIST.<br>BIRTH TO DEATH.</p>
+    <h1><span class="over">WHERE THEY ENDED UP</span>BORN HERE,<br>DIED THERE</h1>
+    <div class="strip" aria-hidden="true"><i style="background:var(--bl)"></i><i style="background:var(--or)"></i><i style="background:var(--yel)"></i><i style="background:var(--grn)"></i><i style="background:var(--ink)"></i></div>
+  </div>
+  <div class="intro">
+    <p class="stars" aria-hidden="true">***</p>
+    <p class="lede">Every line on this map is one artist who has exhibited at mumok in Vienna. It runs from the place they were born to the place they died, and shows where their lives took them.</p>
+  </div>
+</header>
+
+<section class="stats" id="figures">
+  <figure class="stat"><p class="big"><span id="n-drawn">–</span><small> of <span id="n-known">–</span></small></p><div class="waffle" id="w-drawn"></div><figcaption>ARTISTS ON THE MAP<span>of those with both places on record</span></figcaption></figure>
+  <figure class="stat"><p class="big"><span id="n-home">–</span><small> of <span class="n-drawn2">–</span></small></p><div class="waffle" id="w-home"></div><figcaption>DIED IN THEIR HOME COUNTRY<span>the country they were born in</span></figcaption></figure>
+  <figure class="stat"><p class="big"><span id="n-crossed">–</span><small> of <span class="n-drawn2">–</span></small></p><div class="waffle" id="w-crossed"></div><figcaption>DIED IN ANOTHER COUNTRY<span>not the one they were born in</span></figcaption></figure>
+</section>
+
+<section class="mapsec" id="map-section">
+  <div class="bar">
+    <div class="legend"><span><i class="sw" style="background:var(--bl)"></i>BORN</span><span><i class="sw" style="background:var(--or)"></i>DIED</span><span><i class="sw" style="height:2px;width:18px;background:var(--ink);opacity:.55"></i>ONE ARTIST</span></div>
+    <div class="ctrls">
+      <label class="sel"><span>COUNTRY</span><select id="country" aria-label="Highlight a country"></select></label>
+    </div>
+  </div>
+  <div class="panel"><div class="map" id="map"></div></div>
+  <div class="detail" id="detail"></div>
+</section>
+
+<section class="howto" id="how-to-read">
+  <h2>HOW TO READ THE MAP</h2>
+  <div class="howto-grid">
+    <div><h3><i class="sw" style="background:var(--bl)"></i>BORN</h3><p>A blue square marks a birthplace. The bigger the square, the more artists were born there.</p></div>
+    <div><h3><i class="sw" style="background:var(--or)"></i>DIED</h3><p>An orange square marks a place of death, sized the same way. Where a city has both, the orange square sits just behind the blue one.</p></div>
+    <div><h3><i class="sw" style="height:2px;width:18px;background:var(--ink);opacity:.55"></i>ONE LINE, ONE ARTIST</h3><p>Every line means the same thing: one artist, from birthplace to place of death. Lines bend to the left of their direction, so a move from Europe to the USA curves south and a move the other way curves north.</p></div>
+    <div><h3><i class="sw" style="height:4px;width:18px;background:var(--ink)"></i>DARK BUNDLES</h3><p>Each line is drawn faint. Where many artists share a similar route, such as Europe to New York, the lines stack up and look black. Darker means more artists, not a different kind of line.</p></div>
+  </div>
+  <p class="hint">Pick a country to colour its lines: blue for artists born there, orange for artists who died there. The names appear below the map. Point at a line or square for names, and click it to keep the details below the map. Artists who died in the town where they were born have no line, only squares. Drag to move, Ctrl + scroll or pinch to zoom.</p>
+</section>
+
+<footer>
+  <p class="note">Places are matched to GeoNames towns of over 1,000 people. Villages not listed there are shown at the nearest town. Countries follow today's borders. Data: mumok artist list, cleaned 20 November 2026. Land: Natural Earth.</p>
+  <p class="by">MUMOK<br>ARTIST ATLAS</p>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const DATA = __DATA__;
+const MASK = '__MASK__';
+const ROWS = DATA.rows.map((a, i) => {
+  const [who, born, died, born_place, died_place, born_country, died_country, blat, blon, dlat, dlon, bnear, dnear] = a;
+  return { id: i, who, born, died, born_place, died_place, born_country, died_country, blat, blon, dlat, dlon, bnear, dnear,
+    bk: blat + ',' + blon, dk: dlat + ',' + dlon,
+    same: blat === dlat && blon === dlon, cross: born_country !== died_country };
+});
+const STATS = (() => {
+  const moved = ROWS.filter((r) => !r.same);
+  const crossed = moved.filter((r) => r.cross).length;
+  return { known: DATA.known, drawn: ROWS.length, moved: moved.length, crossed, home: ROWS.length - crossed };
+})();
+const S = { sel: '', scope: 'all', pick: null, t: null, tW: 0, zoomTo: null };
+const ZOOMS = { world: null, europe: [[-11, 35], [40, 61]], austria: [[9.2, 46.2], [17.4, 49.1]] };
+const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Figures
+document.getElementById('n-drawn').textContent = STATS.drawn;
+document.getElementById('n-known').textContent = STATS.known;
+document.getElementById('n-home').textContent = STATS.home;
+document.getElementById('n-crossed').textContent = STATS.crossed;
+document.querySelectorAll('.n-drawn2').forEach((e) => { e.textContent = STATS.drawn; });
+
+function waffle(id, part, whole, tone) {
+  const el = document.getElementById(id);
+  const cols = 48, c = 5, g = 1, rows = Math.ceil(whole / cols);
+  const svg = d3.select(el).append('svg')
+    .attr('viewBox', `0 0 ${cols * (c + g)} ${rows * (c + g)}`)
+    .attr('width', cols * (c + g))
+    .attr('role', 'img').attr('aria-label', `${part} of ${whole} artists, one square each`);
+  svg.append('g').attr('shape-rendering', 'crispEdges').selectAll('rect').data(d3.range(whole)).join('rect')
+    .attr('x', (i) => (i % cols) * (c + g)).attr('y', (i) => Math.floor(i / cols) * (c + g))
+    .attr('width', c).attr('height', c)
+    .style('fill', (i) => (i < part ? tone : 'var(--land)'));
+}
+waffle('w-drawn', STATS.drawn, STATS.known, 'var(--ink)');
+waffle('w-home', STATS.home, STATS.drawn, 'var(--grn)');
+waffle('w-crossed', STATS.crossed, STATS.drawn, 'var(--yel)');
+
+// Map helpers
+const tipOf = (el) => { let t = el.querySelector(':scope > .tip'); if (!t) { t = document.createElement('div'); t.className = 'tip'; t.hidden = true; el.append(t); } return t; };
+const showTip = (el, t, ev, lines) => {
+  t.replaceChildren();
+  lines.forEach((s, i) => { const n = document.createElement(i ? 'span' : 'b'); n.textContent = s; t.append(n); });
+  t.hidden = false;
+  const r = el.getBoundingClientRect();
+  let x = ev.clientX - r.left + 14; const y = ev.clientY - r.top + 14;
+  const tw = t.offsetWidth; if (x + tw > r.width) x = Math.max(0, ev.clientX - r.left - tw - 14);
+  t.style.left = x + 'px'; t.style.top = y + 'px';
+};
+const placeText = (r, k) => (k === 'b' ? r.born_place : r.died_place)
+  + ((k === 'b' ? r.bnear : r.dnear) ? ' (shown at ' + (k === 'b' ? r.bnear : r.dnear) + ')' : '')
+  + ((k === 'b' ? r.born : r.died) ? ', ' + (k === 'b' ? r.born : r.died) : '');
+const isPickA = (r) => S.pick && S.pick.type === 'artist' && S.pick.id === r.id;
+const lineColor = (r) => {
+  if (S.pick && S.pick.type === 'artist') return isPickA(r) ? 'var(--or)' : 'var(--ink)';
+  if (S.pick && S.pick.type === 'place') return r.bk === S.pick.key ? 'var(--bl)' : 'var(--or)';
+  if (!S.sel) return 'var(--ink)';
+  const b = r.born_country === S.sel, d = r.died_country === S.sel;
+  return b && d ? 'var(--ink)' : b ? 'var(--bl)' : d ? 'var(--or)' : 'var(--ink)';
+};
+const lineOp = (r) => {
+  if (S.pick && S.pick.type === 'artist') return isPickA(r) ? 1 : 0.07;
+  if (S.pick && S.pick.type === 'place') return (r.bk === S.pick.key || r.dk === S.pick.key) ? 0.9 : 0.05;
+  if (!S.sel) return 0.3;
+  return (r.born_country === S.sel || r.died_country === S.sel) ? 0.85 : 0.05;
+};
+
+function drawMap() {
+  const el = document.getElementById('map');
+  el.replaceChildren();
+  const W = el.clientWidth || 720;
+  const proj = d3.geoNaturalEarth1().fitWidth(W - 8, { type: 'MultiPoint', coordinates: [[-180, 0], [180, 0], [0, 83], [0, -56]] });
+  const bb = d3.geoPath(proj).bounds({ type: 'MultiPoint', coordinates: [[0, 83], [0, -56], [-180, 0], [180, 0]] });
+  const tr = proj.translate(); proj.translate([tr[0] + 4 - bb[0][0], tr[1] + 6 - bb[0][1]]);
+  const H = Math.ceil(bb[1][1] - bb[0][1] + 12);
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H)
+    .attr('role', 'img').attr('aria-label', 'World map with a line from each artist birthplace to their place of death');
+  svg.append('defs').append('clipPath').attr('id', 'clip').append('rect').attr('width', W).attr('height', H);
+  const root = svg.append('g').attr('clip-path', 'url(#clip)');
+  const gz = root.append('g');
+
+  // Pixel land: sample square screen cells against a 1-degree land mask
+  const cell = Math.max(3, Math.round(W / 175)); const s = cell > 3 ? cell - 1 : cell;
+  let d = '';
+  for (let y = cell / 2; y < H; y += cell) {
+    for (let x = cell / 2; x < W; x += cell) {
+      const ll = proj.invert([x, y]); if (!ll || !isFinite(ll[0]) || !isFinite(ll[1])) continue;
+      const back = proj(ll); if (!back || Math.abs(back[0] - x) > 0.5 || Math.abs(back[1] - y) > 0.5) continue;
+      const rr = Math.floor(90 - ll[1]); const cc = Math.floor(ll[0] + 180);
+      if (rr < 0 || rr > 179 || cc < 0 || cc > 359) continue;
+      const k = rr * 360 + cc;
+      if (parseInt(MASK[k >> 2], 16) & (8 >> (k & 3))) d += 'M' + (x - cell / 2).toFixed(1) + ' ' + (y - cell / 2).toFixed(1) + 'h' + s + 'v' + s + 'h-' + s + 'z';
+    }
+  }
+  gz.append('path').attr('d', d).attr('shape-rendering', 'crispEdges').style('fill', 'var(--land)');
+
+  // Smooth lines, one per artist
+  const rows = ROWS.filter((r) => !r.same && (S.scope === 'all' || r.cross)).sort((a, b) => lineOp(a) - lineOp(b));
+  rows.forEach((r) => {
+    const a = proj([r.blon, r.blat]); const b = proj([r.dlon, r.dlat]);
+    const dx = b[0] - a[0]; const dy = b[1] - a[1];
+    const cx = (a[0] + b[0]) / 2 + dy * 0.22; const cy = (a[1] + b[1]) / 2 - dx * 0.22;
+    r._d = `M${a[0].toFixed(1)} ${a[1].toFixed(1)}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${b[0].toFixed(1)} ${b[1].toFixed(1)}`;
+  });
+  const lg = gz.append('g').attr('fill', 'none');
+  lg.selectAll('path.line').data(rows).join('path').attr('class', 'line').attr('d', (r) => r._d)
+    .attr('vector-effect', 'non-scaling-stroke').style('stroke', lineColor).style('opacity', lineOp)
+    .style('stroke-width', (r) => (isPickA(r) ? 2.5 : 1) + 'px').style('stroke-linecap', 'round');
+  const tip = tipOf(el); const hide = () => { tip.hidden = true; };
+  lg.selectAll('path.lhit').data(rows).join('path').attr('class', 'lhit').attr('d', (r) => r._d)
+    .attr('vector-effect', 'non-scaling-stroke').style('stroke', 'transparent').style('stroke-width', '9px')
+    .style('pointer-events', 'stroke').style('cursor', 'pointer')
+    .on('mousemove', (ev, r) => showTip(el, tip, ev, [r.who, 'Born: ' + placeText(r, 'b'), 'Died: ' + placeText(r, 'd')]))
+    .on('mouseleave', hide)
+    .on('click', (ev, r) => { ev.stopPropagation(); hide(); S.pick = isPickA(r) ? null : { type: 'artist', id: r.id }; redraw(); });
+
+  // Places: blue = born here, orange outline = died here
+  const P = new Map();
+  ROWS.forEach((r) => {
+    const add = (key, lat, lon, label, f) => { const o = P.get(key) || { key, lat, lon, label, born: 0, died: 0 }; o[f] += 1; P.set(key, o); };
+    add(r.bk, r.blat, r.blon, r.bnear ? r.bnear + ' area' : r.born_place, 'born');
+    add(r.dk, r.dlat, r.dlon, r.dnear ? r.dnear + ' area' : r.died_place, 'died');
+  });
+  const places = [...P.values()].map((p) => ({ ...p, xy: proj([p.lon, p.lat]) })).sort((a, b) => (b.born + b.died) - (a.born + a.died));
+  const pickedPlace = S.pick && S.pick.type === 'place' ? S.pick.key : null;
+  const dots = root.append('g').selectAll('g').data(places).join('g');
+  dots.append('rect').attr('data-o', (p) => (p.born ? 2 : 0)).style('fill', 'var(--or)').style('stroke', 'var(--panel)').style('stroke-width', 1)
+    .attr('width', (p) => p.died ? 2.5 + Math.sqrt(p.died) * 1.4 : 0).attr('height', (p) => p.died ? 2.5 + Math.sqrt(p.died) * 1.4 : 0);
+  dots.append('rect').style('fill', 'var(--bl)').style('stroke', 'var(--panel)').style('stroke-width', 1)
+    .attr('width', (p) => p.born ? 2.5 + Math.sqrt(p.born) * 1.4 : 0).attr('height', (p) => p.born ? 2.5 + Math.sqrt(p.born) * 1.4 : 0);
+  dots.append('rect').style('fill', 'transparent').style('cursor', 'pointer').attr('width', 14).attr('height', 14)
+    .on('mousemove', (ev, p) => showTip(el, tip, ev, [p.label, 'Born here: ' + p.born, 'Died here: ' + p.died]))
+    .on('mouseleave', hide)
+    .on('click', (ev, p) => { ev.stopPropagation(); hide(); S.pick = pickedPlace === p.key ? null : { type: 'place', key: p.key, label: p.label }; redraw(); });
+  dots.style('opacity', (p) => (!pickedPlace || p.key === pickedPlace) ? 1 : 0.35);
+  const placeDots = (t) => {
+    dots.each(function (p) {
+      const x = t.applyX(p.xy[0]); const y = t.applyY(p.xy[1]);
+      d3.select(this).selectAll('rect').each(function () { const w = +this.getAttribute('width'); const o = +(this.getAttribute('data-o') || 0); this.setAttribute('x', x - w / 2 + o); this.setAttribute('y', y - w / 2 + o); });
+    });
+  };
+
+  // Zoom and pan
+  const zoom = d3.zoom().scaleExtent([1, 14]).translateExtent([[0, 0], [W, H]]).extent([[0, 0], [W, H]])
+    .filter((ev) => (ev.type === 'wheel' ? (ev.ctrlKey || ev.metaKey) : !ev.button))
+    .on('zoom', (ev) => { gz.attr('transform', ev.transform); placeDots(ev.transform); S.t = ev.transform; S.tW = W; });
+  svg.call(zoom).on('dblclick.zoom', null);
+  svg.on('click', () => { if (S.pick) { S.pick = null; redraw(); } });
+  svg.call(zoom.transform, S.t && S.tW === W ? S.t : d3.zoomIdentity);
+  S.zoomTo = (name) => {
+    const box = ZOOMS[name]; let t = d3.zoomIdentity;
+    if (box) {
+      const a = proj(box[0]); const b = proj(box[1]);
+      const x0 = Math.min(a[0], b[0]), x1 = Math.max(a[0], b[0]), y0 = Math.min(a[1], b[1]), y1 = Math.max(a[1], b[1]);
+      const k = Math.min(14, 0.92 / Math.max((x1 - x0) / W, (y1 - y0) / H));
+      t = d3.zoomIdentity.translate(W / 2 - k * (x0 + x1) / 2, H / 2 - k * (y0 + y1) / 2).scale(k);
+    }
+    (reduceMotion ? svg : svg.transition().duration(600)).call(zoom.transform, t);
+  };
+}
+
+function redraw() { drawMap(); drawDetail(); }
+
+// Country menu
+(() => {
+  const sel = document.getElementById('country'); const c = {};
+  ROWS.forEach((r) => {
+    if (r.born_country) { c[r.born_country] = c[r.born_country] || { b: 0, d: 0 }; c[r.born_country].b += 1; }
+    if (r.died_country) { c[r.died_country] = c[r.died_country] || { b: 0, d: 0 }; c[r.died_country].d += 1; }
+  });
+  sel.replaceChildren(new Option('All countries', ''), ...Object.keys(c).sort().map((k) => new Option(`${k} (born ${c[k].b}, died ${c[k].d})`, k)));
+  sel.addEventListener('change', () => { S.sel = sel.value; S.pick = null; redraw(); });
+})();
+
+// Who: details below the map
+function drawDetail() {
+  const el = document.getElementById('detail'); el.replaceChildren();
+  const box = (title, sw, items) => {
+    const b = document.createElement('div'); b.className = 'box';
+    const h = document.createElement('h3');
+    if (sw) { const i = document.createElement('i'); i.className = 'sw'; i.style.background = sw; h.append(i); }
+    h.append(title); b.append(h);
+    const ul = document.createElement('ul');
+    items.forEach((it) => { const li = document.createElement('li'); if (it[0]) { const bb = document.createElement('b'); bb.textContent = it[0] + ' '; li.append(bb); } const sp = document.createElement('span'); sp.textContent = it[1]; li.append(sp); ul.append(li); });
+    if (!items.length) { const li = document.createElement('li'); li.textContent = 'None on the map.'; ul.append(li); }
+    b.append(ul); el.append(b);
+  };
+  const pk = S.pick;
+  if (pk && pk.type === 'artist') {
+    const r = ROWS.find((x) => x.id === pk.id);
+    if (r) { const items = [['Born:', placeText(r, 'b')], ['Died:', placeText(r, 'd')]]; if (r.born && r.died) items.push(['Lived:', (r.died - r.born) + ' years']); box(r.who.toUpperCase(), 'var(--or)', items); return; }
+  }
+  if (pk && pk.type === 'place') {
+    const bornH = ROWS.filter((r) => r.bk === pk.key); const diedH = ROWS.filter((r) => r.dk === pk.key);
+    box(`BORN IN ${pk.label.toUpperCase()} · ${bornH.length}`, 'var(--bl)', bornH.map((r) => [r.who, r.same ? 'died here too' : 'died in ' + r.died_place]));
+    box(`DIED IN ${pk.label.toUpperCase()} · ${diedH.length}`, 'var(--or)', diedH.map((r) => [r.who, r.same ? 'born here too' : 'born in ' + r.born_place]));
+    return;
+  }
+  if (S.sel) {
+    const b = ROWS.filter((r) => r.born_country === S.sel && r.died_country !== S.sel);
+    const d = ROWS.filter((r) => r.died_country === S.sel && r.born_country !== S.sel);
+    box(`BORN IN ${S.sel.toUpperCase()}, DIED ELSEWHERE · ${b.length}`, 'var(--bl)', b.map((r) => [r.who, 'died in ' + r.died_place]));
+    box(`DIED IN ${S.sel.toUpperCase()}, BORN ELSEWHERE · ${d.length}`, 'var(--or)', d.map((r) => [r.who, 'born in ' + r.born_place]));
+    return;
+  }
+  const top = (f) => { const m = {}; ROWS.forEach((r) => { m[r[f]] = (m[r[f]] || 0) + 1; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 8).map((e) => [e[0], e[1] + ' artists']); };
+  box('MOST COMMON BIRTHPLACES', 'var(--bl)', top('born_place'));
+  box('MOST COMMON PLACES OF DEATH', 'var(--or)', top('died_place'));
+}
+
+drawMap();
+drawDetail();
+let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(drawMap, 150); });
+
+document.querySelectorAll('[data-scope]').forEach((b) => b.addEventListener('click', () => {
+  S.scope = b.dataset.scope;
+  document.querySelectorAll('[data-scope]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  drawMap();
+}));
+document.querySelectorAll('[data-zoom]').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-zoom]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  if (S.zoomTo) S.zoomTo(b.dataset.zoom);
+}));
+</script>
+</body>
+</html>

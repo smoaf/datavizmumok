@@ -1,0 +1,15 @@
+{
+  "name": "datavizmumok",
+  "private": true,
+  "description": "Born here, died there: birth and death places of artists exhibited at mumok Vienna",
+  "scripts": {
+    "geocode": "node scripts/geocode.js data/artist_mumok_clean_v1.csv data/artists_mumok_places_v2.json data/place_matching_report_v2.csv",
+    "land": "node scripts/raster_world.js node_modules/world-atlas/land-50m.json data/land_world1.json",
+    "build": "python3 scripts/build_site.py"
+  },
+  "devDependencies": {
+    "all-the-cities": "3.1.0",
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2"
+  }
+}
